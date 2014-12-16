@@ -1,0 +1,10 @@
+16/09/2013
+
+Fixed 2 issues.
+
+1. Made the calculation of fch1 correct, so that it is ftop -
+|foff|/2, i.e. half a channel lower than the top frequency
+
+2. Fixed the weird and specific input file name constraint - now it
+reads any filename and outputs a file of the form <basefilename>.fil
+
