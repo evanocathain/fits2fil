@@ -176,6 +176,7 @@ int little_endian() /*includefile*/
   fprintf(stderr,"Your OSTYPE environment variable is defined but not recognized!\n");
   fprintf(stderr,"Consult and edit little_endian in swap_bytes.c and then recompile\n");
   fprintf(stderr,"the code if necessary... Contact dunc@naic.edu for further help\n");
+  return(0);
 }
 
 int big_endian() /*includefile*/

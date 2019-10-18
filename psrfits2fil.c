@@ -11,7 +11,7 @@ void send_long(char *name, long integer) ;
 void send_string(char *string) ;
 FILE *input, *output;
 int swapout;
-main (int argc, char **argv){
+int main (int argc, char **argv){
   unsigned char *data;
   int flip=0,i,j,k,l,x,status,first=1,startchan,endchan,idump=0,ndumps=1;
   struct psrfits pf;
@@ -146,4 +146,6 @@ main (int argc, char **argv){
     idump=0;
   }
   free(data);
+
+  return(0);
 }
