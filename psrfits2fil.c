@@ -92,8 +92,9 @@ int main (int argc, char **argv){
       send_int("nifs",1);
       send_double("tsamp",pf.hdr.dt);
       send_double("tstart",pf.hdr.MJD_epoch);
-      send_int("telescope_id",6);
-      send_int("machine_id",9);
+      if (strings_equal(pf.hdr.telescope,"LOFAR")) send_int("telescope_id",11);
+      else send_int("telescope_id",5); // default to Lovell Telescope
+      send_int("machine_id",99);       // default to something not in SIGPROC's aliases.c
 
       rah=atof(strtok(pf.hdr.ra_str,":"));
       ram=atof(strtok(NULL,":"));
