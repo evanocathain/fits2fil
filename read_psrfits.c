@@ -57,18 +57,20 @@ int psrfits_open(struct psrfits *pf) {
     // TODO warn if not TRACK?
     fits_read_key(pf->fptr, TSTRING, "RA", hdr->ra_str, NULL, status);
     fits_read_key(pf->fptr, TSTRING, "DEC", hdr->dec_str, NULL, status);
-    fits_read_key(pf->fptr, TDOUBLE, "BMAJ", &(hdr->beam_FWHM), NULL, status);
+
+    /*    fits_read_key(pf->fptr, TDOUBLE, "BMAJ", &(hdr->beam_FWHM), NULL, status);
     fits_read_key(pf->fptr, TSTRING, "CAL_MODE", hdr->cal_mode, NULL, status);
     fits_read_key(pf->fptr, TDOUBLE, "CAL_FREQ", &(hdr->cal_freq), NULL, status);
     fits_read_key(pf->fptr, TDOUBLE, "CAL_DCYC", &(hdr->cal_dcyc), NULL, status);
     fits_read_key(pf->fptr, TDOUBLE, "CAL_PHS", &(hdr->cal_phs), NULL, status);
     fits_read_key(pf->fptr, TSTRING, "FD_MODE", hdr->feed_mode, NULL, status);
     fits_read_key(pf->fptr, TDOUBLE, "FA_REQ", &(hdr->feed_angle), NULL, status);
-    fits_read_key(pf->fptr, TDOUBLE, "SCANLEN", &(hdr->scanlen), NULL, status);
+    fits_read_key(pf->fptr, TDOUBLE, "SCANLEN", &(hdr->scanlen), NULL, status);*/
+
     //printf("Status %d\n",*status);
     //printf("SCAN LENGTH %lf\n",hdr->scanlen);
     fits_read_key(pf->fptr, TINT, "STT_IMJD", &itmp, NULL, status);
-    //printf("Status %d\n",*status);
+    printf("Status %d\n",*status);
     hdr->MJD_epoch = (long double)itmp;
     //printf("MJD %Lf %d\n",(long double)itmp,itmp);
     fits_read_key(pf->fptr, TDOUBLE, "STT_SMJD", &dtmp, NULL, status);
@@ -80,7 +82,9 @@ int psrfits_open(struct psrfits *pf) {
     hdr->MJD_epoch += dtmp/86400.0L;
     //printf("MJD %f\n",dtmp);
     //printf("MJD %Lf\n",hdr->MJD_epoch);
-    fits_read_key(pf->fptr, TDOUBLE, "STT_LST", &(hdr->start_lst), NULL, status);
+
+    /*fits_read_key(pf->fptr, TDOUBLE, "STT_LST", &(hdr->start_lst), NULL, status);*/
+
     //printf("Status %d\n",*status);
     
     //printf("Status %d\n",*status);
